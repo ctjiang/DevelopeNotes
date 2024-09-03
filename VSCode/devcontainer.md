@@ -14,3 +14,12 @@ Visual Studio Code Dev Containers extension讓你用Docker當成全功能的完�
 [**Create a devcontainer.json file**](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file)
 
 **Forwarding or publishing a port**
+- Always forwarding a port : 在devcontainer.json檔中，加入*forwardPorts* property，語法為```"fowardPorts":[3000:3001]```
+- Temporarily forwarding a port : 從VSCode的Command Palette (F1)中，執行 **Forward a Port** Command
+- Publishing a port : Docker has the concept of "publishing" ports when the container is created.
+  - Use the appPort property : devcontainer.json檔中，加入"appPort": \[ 3000, "8921:5000" \]
+  - Use the Docker Compose ports mapping : docker-compose.yml檔中，加入</br>
+    ports: </br>
+    \- "3000" </br>
+    \- "8921:5000" </br>
+    
